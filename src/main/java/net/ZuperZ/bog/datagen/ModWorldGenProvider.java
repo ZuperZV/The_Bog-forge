@@ -1,7 +1,8 @@
-package net.ZuperZV.Tool_Forge.datagen;
+package net.ZuperZ.bog.datagen;
 
-import net.ZuperZV.Tool_Forge.Tool_Forge;
-import net.ZuperZV.Tool_Forge.worldgen.ModBiomeModifiers;
+import net.ZuperZ.bog.Bog;
+import net.ZuperZ.bog.worldgen.ModBiomeModifiers;
+import net.ZuperZ.bog.worldgen.biome.ModBiomes;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
@@ -14,9 +15,10 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModWorldGenProvider extends DatapackBuiltinEntriesProvider {
     public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
-            .add(ForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap);
+            .add(ForgeRegistries.Keys.BIOME_MODIFIERS, ModBiomeModifiers::bootstrap)
+            .add(Registries.BIOME, ModBiomes::boostrap);
 
     public ModWorldGenProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
-        super(output, registries, BUILDER, Set.of(Tool_Forge.MOD_ID));
+        super(output, registries, BUILDER, Set.of(Bog.MOD_ID));
     }
 }

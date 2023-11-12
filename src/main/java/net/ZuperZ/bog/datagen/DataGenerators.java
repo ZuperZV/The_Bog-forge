@@ -1,9 +1,6 @@
-package net.ZuperZV.Tool_Forge.datagen;
+package net.ZuperZ.bog.datagen;
 
-import net.ZuperZV.Tool_Forge.Tool_Forge;
-import net.ZuperZV.Tool_Forge.datagen.loot.ModBlockLootTables;
-import net.ZuperZV.Tool_Forge.item.ModItems;
-import net.ZuperZV.Tool_Forge.util.ModTags;
+import net.ZuperZ.bog.Bog;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -16,7 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-@Mod.EventBusSubscriber(modid = Tool_Forge.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = Bog.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) throws ExecutionException, InterruptedException {
@@ -33,8 +30,8 @@ public class DataGenerators {
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
 
-        generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
-
         generator.addProvider(event.includeClient(), new ModGlobalLootModifierProvider(packOutput));
+
+        generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
     }
 }

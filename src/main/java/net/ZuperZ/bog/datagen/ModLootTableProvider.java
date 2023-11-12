@@ -1,4 +1,4 @@
-package net.ZuperZV.Tool_Forge.datagen;
+package net.ZuperZ.bog.datagen;
 
 
 public class ModLootTableProvider {

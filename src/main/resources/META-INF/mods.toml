@@ -56,16 +56,15 @@ description='''${mod_description}'''
     side="BOTH"
 # Here's another dependency
 [[dependencies.${mod_id}]]
-    modId="minecraft"
-    mandatory=true
-    # This version range declares a minimum of the current minecraft version up to but not including the next major version
-    versionRange="${minecraft_version_range}"
-    ordering="NONE"
-    side="BOTH"
+modId="minecraft"
+mandatory=true
+# This version range declares a minimum of the current minecraft version up to but not including the next major version
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
 [[dependencies.${mod_id}]]
 modId="terrablender"
 mandatory=true
-# This version range declares a minimum of the current minecraft version up to but not including the next major version
 versionRange="${terrablender_version_range}"
 ordering="NONE"
 side="BOTH"

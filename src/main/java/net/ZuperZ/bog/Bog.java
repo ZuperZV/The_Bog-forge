@@ -1,6 +1,12 @@
 package net.ZuperZ.bog;
 
 import com.mojang.logging.LogUtils;
+import net.ZuperZ.bog.block.ModBlocks;
+import net.ZuperZ.bog.item.ModItems;
+import net.ZuperZ.bog.worldgen.biome.ModTerraBlenderAPI;
+import net.ZuperZ.bog.worldgen.biome.surface.ModSurfaceRules;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -12,6 +18,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
+import terrablender.api.SurfaceRuleManager;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(Bog.MOD_ID)
@@ -22,19 +29,32 @@ public class Bog {
     public Bog() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModTerraBlenderAPI.registerRegions();
+
         modEventBus.addListener(this::commonSetup);
+
+        ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
         modEventBus.addListener(this::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModSurfaceRules.makeRules());
+        });
 
     }
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.accept(ModItems.SILVER);
+            event.accept(ModItems.LEAF);
+            event.accept(ModItems.SALAD);
+            event.accept(ModItems.CRANBERRIES);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call

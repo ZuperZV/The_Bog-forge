@@ -1,4 +1,4 @@
-package net.ZuperZV.Tool_Forge.loot;
+package net.ZuperZ.bog.loot;
 
 import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
