@@ -24,12 +24,12 @@ public class ModBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, Bog.MOD_ID);
     public static final RegistryObject<Block> BOG_GRASS = registerBlock("bog_grass",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS)));
-    public static final RegistryObject<Block> RAW_SILVER_BLOCK = registerBlock("raw_silver_block",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-    public static final RegistryObject<Block> SILVER_BLOCK = registerBlock("gilded_gold_block",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
-    public static final RegistryObject<Block> WEEPING_WILLOW_PLANKS = registerBlock("weeping_willow_planks",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS)));
+    //public static final RegistryObject<Block> RAW_SILVER_BLOCK = registerBlock("raw_silver_block",
+    //        () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    //public static final RegistryObject<Block> SILVER_BLOCK = registerBlock("silver_block",
+    //        () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+    //public static final RegistryObject<Block> WEEPING_WILLOW_PLANKS = registerBlock("weeping_willow_planks",
+    //        () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

@@ -17,10 +17,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(ModBlocks.SILVER_BLOCK);
-        blockWithItem(ModBlocks.RAW_SILVER_BLOCK);
-        blockWithItem(ModBlocks.BOG_GRASS);
-        blockWithItem(ModBlocks.WEEPING_WILLOW_PLANKS);
+    //    blockWithItem(ModBlocks.SILVER_BLOCK);
+    //    blockWithItem(ModBlocks.RAW_SILVER_BLOCK);
+    //    blockWithItem(ModBlocks.BOG_GRASS);
+    //    blockWithItem(ModBlocks.WEEPING_WILLOW_PLANKS);
 
 
     }
